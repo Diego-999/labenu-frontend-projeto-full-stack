@@ -8,6 +8,13 @@ function LoginPage() {
   const [newPassword, setNewPassword] = useState();
   const history = useHistory();
 
+  useEffect(() => {
+    const token = window.localStorage.getItem("token");
+    if (token !== null) {
+      history.replace("/home");
+    }
+  }, [history]);
+
   const handleLogin = (event) => {
     setNewLogin(event.target.value);
   };
@@ -20,7 +27,7 @@ function LoginPage() {
     history.replace("/home");
   };
 
-  const goSignUp = () => {
+  const goToSignUp = () => {
     history.push("/signup");
   };
 
@@ -32,8 +39,9 @@ function LoginPage() {
 
     try {
       const result = await axios.post(" http://localhost:4000/login", body);
-      console.log(result);
+      localStorage.setItem("token", result.data.dataUser.accessToken);
       goToHome();
+      console.log(result.data.dataUser.accessToken);
     } catch (error) {
       alert("Login incorreto, por favor tente novamente");
       console.log(error);
@@ -43,7 +51,7 @@ function LoginPage() {
   return (
     <div>
       <Helmet title="LabeView" />
-      <h1>HomePage</h1>
+      <h1>LoginPage</h1>
       <div>
         <input
           type="text"
@@ -60,7 +68,7 @@ function LoginPage() {
       </div>
       <div>
         <button onClick={Login}>Login</button>
-        <button onClick={goSignUp}>Cadastre-se</button>
+        <button onClick={goToSignUp}>Cadastre-se</button>
       </div>
     </div>
   );
