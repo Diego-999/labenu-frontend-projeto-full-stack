@@ -60,7 +60,7 @@ function LoginPage() {
           onChange={handleLogin}
         ></input>
         <input
-          type="text"
+          type="password"
           placeholder="Password"
           value={newPassword}
           onChange={handlePassword}

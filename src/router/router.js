@@ -1,9 +1,9 @@
 import React from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import LoginPage from "../components/LoginPage/LoginPage";
-import HomePage from "../components/HomePage/HomePage";
-import SignUpPage from "../components/SignUp/SignUpPage";
-import CreateImagePage from "../components/CreateImagePage/CreateImagePage";
+import LoginPage from "../components/LoginPage";
+import HomePage from "../components/HomePage";
+import SignUpPage from "../components/SignUp";
+import CreateImagePage from "../components/CreateImagePage";
 
 const Router = () => {
   return (
