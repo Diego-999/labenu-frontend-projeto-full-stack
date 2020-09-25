@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import { useHistory } from "react-router-dom";
 import useAuthorization from "../../hooks/useAuthorization";
-import { ContainerImages, StyleImage } from "./styles";
+import { ContainerImages, StyleImage, InfoImages } from "./styles";
 import Modal from "@material-ui/core/Modal";
 import { MainModalContainer, ModalContainer, ModalImage } from "./modalStyles";
 
@@ -24,10 +24,6 @@ function HomePage() {
 
   const goToCreateImage = () => {
     history.push("/create");
-  };
-
-  const goToLogin = () => {
-    history.replace("/");
   };
 
   const logout = () => {
@@ -106,7 +102,12 @@ function HomePage() {
       <Modal open={open} onClose={handleClose}>
         <ModalContainer>
           <ModalImage src={imageById && imageById.file} />
-          <p>{imageById && imageById.subtitle}</p>
+          <InfoImages>
+            <p>Legenda: {imageById && imageById.subtitle} </p>
+            <p> ----- Criador: {imageById && imageById.author}</p>
+            <p>Coleção: {imageById && imageById.collection}</p>
+            <p> ------ Data de criação: {imageById && imageById.created_at}</p>
+          </InfoImages>
         </ModalContainer>
       </Modal>
     </div>

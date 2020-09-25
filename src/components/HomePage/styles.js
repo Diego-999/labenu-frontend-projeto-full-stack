@@ -11,6 +11,11 @@ export const StyleImage = styled.img`
   cursor: pointer;
 `;
 
+export const InfoImages = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+`;
+
 // display: grid;
 //   grid-template-columns: auto auto auto;
 //   background-color: #2196F3;
