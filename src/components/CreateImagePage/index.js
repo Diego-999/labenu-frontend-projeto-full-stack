@@ -127,7 +127,7 @@ function CreateImagePage() {
             required
             name="date"
             value={form.date}
-            placeholder="Data"
+            placeholder="Data: AAAA/MM/DD"
             onChange={handleInputChange}
             title="Digite a data"
           ></input>
